@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <localRepository>${user.home}/.m2/repository</localRepository>
+
+<!--    <mirrors>-->
+<!--        <mirror>-->
+<!--            <id>e-iceblue-mirror</id>-->
+<!--            <url>https://repo.e-iceblue.com/nexus/content/groups/public/</url>-->
+<!--            <mirrorOf>*</mirrorOf>-->
+<!--        </mirror>-->
+<!--    </mirrors>-->
+
+    <profiles>
+        <profile>
+            <id>e-iceblue-profile</id>
+            <repositories>
+                <repository>
+                    <id>e-iceblue-repository</id>
+                    <url>https://repo.e-iceblue.com/nexus/content/groups/public/</url>
+                    <releases><enabled>true</enabled></releases>
+                    <snapshots><enabled>true</enabled></snapshots>
+                </repository>
+            </repositories>
+        </profile>
+        <profile>
+            <id>default</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <name>Maven Central</name>
+                    <url>https://repo.maven.apache.org/maven2</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>default</activeProfile>
+        <activeProfile>e-iceblue-profile</activeProfile>
+    </activeProfiles>
+</settings>
